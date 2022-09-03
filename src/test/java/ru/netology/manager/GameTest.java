@@ -20,14 +20,13 @@ public class GameTest {
     @BeforeEach
     void setup() {
 
-        game.register(player1);
-        game.register(player2);
-        game.register(player3);
+        game.register("Oleg", player1);
+        game.register("Victor", player2);
+        game.register("Alex", player3);
     }
 
     @Test
     void shouldFirstPlayerWin() {
-
         assertEquals(1, game.round("Oleg", "Victor"));
     }
 
@@ -52,6 +51,7 @@ public class GameTest {
     void shouldThrowNotRegisteredExceptionTwo() {
         assertThrows(NotRegisteredException.class, () -> {
             game.round("Ivan", "Oleg");
+
         });
     }
 }
